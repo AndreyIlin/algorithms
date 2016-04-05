@@ -15,8 +15,14 @@ object KaratsubaAlgorithm {
     * @return result of multiplication
     */
   def multiply(x: String, y: String): String = {
-    val first = align(x)
-    val second = align(y)
+    var oneTwo = ("", "")
+    if (x.length > y.length) {
+      oneTwo = align(x, y)
+    } else {
+      oneTwo = align(y, x)
+    }
+    val first = oneTwo._1
+    val second = oneTwo._2
     val n = first.length
 
     val ab = divide(first)
@@ -36,11 +42,23 @@ object KaratsubaAlgorithm {
       BigInt(bdResult)).toString
   }
 
-  private def align(number: String): String = {
-    if (number.length % 2 == 0) {
-      number
-    } else {
+  private def align(one: String, two: String): (String, String) = {
+    val o = alignOne(one)
+    val diff = one.length - two.length
+    var a = diff
+    var t = two
+    while(a > 0) {
+      t = "0" + t
+      a -= 1
+    }
+    (o, t)
+  }
+
+  private def alignOne(number: String): String = {
+    if (number.length % 2 != 0) {
       "0" + number
+    } else {
+      number
     }
   }
 
