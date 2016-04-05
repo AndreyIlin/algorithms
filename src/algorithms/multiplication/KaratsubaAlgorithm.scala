@@ -1,10 +1,15 @@
 package algorithms.multiplication
 
+import scala.collection.mutable
+import scala.math.BigInt
+
 /**
   * Fast multiplication algorithm
   */
 object KaratsubaAlgorithm {
-
+  var counter1 = 0
+  var counter2 = 0
+  var counter3 = 0
   /**
     * Multiplies two given numbers
     * Numbers can have length more than standard `Int.MaxValue`
@@ -36,15 +41,23 @@ object KaratsubaAlgorithm {
     val apb: BigInt = BigInt(ac._1) + BigInt(bd._1)
     val cpd: BigInt = BigInt(ac._2) + BigInt(bd._2)
     val apbcpdResult = getOrCall(apb.toString, cpd.toString)
+    val numb = BigInt(apbcpdResult) - BigInt(acResult) - BigInt(bdResult)
 
+    if (numb == 105) {
+      counter1 += 1
+    } else if (numb == 72) {
+      counter2 += 1
+    } else if (numb == 12) {
+      counter3 += 1
+    }
     (BigInt(10).pow(n) * BigInt(acResult) +
-      BigInt(10).pow(n / 2) * (BigInt(apbcpdResult) - BigInt(acResult) - BigInt(bdResult)) +
+      BigInt(10).pow(n / 2) * numb +
       BigInt(bdResult)).toString
   }
 
   private def align(one: String, two: String): (String, String) = {
     val o = alignOne(one)
-    val diff = one.length - two.length
+    val diff = o.length - two.length
     var a = diff
     var t = two
     while(a > 0) {
@@ -63,8 +76,10 @@ object KaratsubaAlgorithm {
   }
 
   private def getOrCall(multipliers: (String, String)): String = {
-    if (multipliers._1.length > 1 || multipliers._2.length > 1) {
-      multiply(multipliers._1, multipliers._2)
+    val a = BigInt(multipliers._1).toString()
+    val b = BigInt(multipliers._2).toString()
+    if (a.length > 1 || b.length > 1) {
+      multiply(a, b)
     } else {
       (multipliers._1.toInt * multipliers._2.toInt).toString
     }
