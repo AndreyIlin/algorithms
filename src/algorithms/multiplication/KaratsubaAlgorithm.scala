@@ -1,19 +1,13 @@
 package algorithms.multiplication
 
-import scala.collection.mutable
 import scala.math.BigInt
 
 /**
   * Fast multiplication algorithm
   */
 object KaratsubaAlgorithm {
-  var counter1 = 0
-  var counter2 = 0
-  var counter3 = 0
   /**
-    * Multiplies two given numbers
-    * Numbers can have length more than standard `Int.MaxValue`
-    * That's why they have String type
+    * Multiplies two given long numbers
     *
     * @param x first multiplier
     * @param y second multiplier
@@ -43,13 +37,6 @@ object KaratsubaAlgorithm {
     val apbcpdResult = getOrCall(apb.toString, cpd.toString)
     val numb = BigInt(apbcpdResult) - BigInt(acResult) - BigInt(bdResult)
 
-    if (numb == 105) {
-      counter1 += 1
-    } else if (numb == 72) {
-      counter2 += 1
-    } else if (numb == 12) {
-      counter3 += 1
-    }
     (BigInt(10).pow(n) * BigInt(acResult) +
       BigInt(10).pow(n / 2) * numb +
       BigInt(bdResult)).toString
