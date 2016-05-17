@@ -4,6 +4,8 @@ import scala.math.BigInt
 
 /**
   * Fast multiplication algorithm
+  * Has complexity O(n pow log2(3)) that is better than long multiplication algorithm O(n*n)
+  * This makes it effective for multiplying very long numbers
   */
 object KaratsubaAlgorithm {
   /**
