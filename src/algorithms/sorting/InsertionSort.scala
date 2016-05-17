@@ -9,6 +9,12 @@ package algorithms.sorting
   * The left part of array divided by index of the first loop is always sorted before each iteration
   */
 object InsertionSort {
+
+  /**
+    * Sorts a give array of numbers in ascending order
+    * @param toSort array of numbers to sort
+    * @return same array but sorted
+    */
   def sort(toSort: Array[Int]): Array[Int] = {
     for (i <- 1 until toSort.length) {
       val key = toSort(i)
