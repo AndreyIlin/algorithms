@@ -1,7 +1,7 @@
 package algorithms
 
 import algorithms.multiplication.KaratsubaAlgorithm
-import algorithms.sorting.InsertionSort
+import algorithms.sorting.{InsertionSort, MergeSort}
 
 object AlgorithmsApplication {
   def main(args: Array[String]) {
@@ -11,5 +11,10 @@ object AlgorithmsApplication {
 
     val res1 = InsertionSort.sort(Array(10, 9, 8, 7, 6, 5, 4, 3, 2, 1))
     res1.foreach(i => print(i + " "))
+
+    println()
+
+    val res2 = MergeSort.sort(Array(10, 10, 10, 7, 6, 5, 4, 3, 2, 1))
+    res2.foreach(i => print(i + " "))
   }
 }
