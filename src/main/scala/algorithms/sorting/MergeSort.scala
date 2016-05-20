@@ -1,5 +1,7 @@
 package scala.algorithms.sorting
 
+import scala.annotation.tailrec
+
 /**
   * Merge sort algorithm
   * Uses recursive principe "divide and conquer"
@@ -12,6 +14,7 @@ object MergeSort {
 
   /**
     * Sorts given array with merge sort algorithm
+    *
     * @param array to sort
     * @return array sorted ascending
     */
@@ -36,7 +39,8 @@ object MergeSort {
 
   /**
     * Merges two sorted arrays to one
-    * @param left sorted array
+    *
+    * @param left  sorted array
     * @param right sorted array
     * @return result of merge of two sorted arrays into one
     */
@@ -44,29 +48,23 @@ object MergeSort {
     // take elements from both arrays
     // compare them
     // add to result array
-    var merged = Array[Int]()
-
-    var i = 0
-    var j = 0
-    while(i < left.length && j < right.length) {
-      val l = left(i)
-      val r = right(j)
-
-      if (l > r) {
-        merged = merged :+ r
-        j += 1
+    @tailrec
+    def merge(l: Int, r: Int, left: Array[Int], right: Array[Int], acc: Array[Int]): Array[Int] = {
+      if (l < left.length && r < right.length) {
+        if (left(l) > right(r)) {
+          merge(l, r + 1, left, right, acc :+ right(r))
+        } else {
+          merge(l + 1, r, left, right, acc :+ left(r))
+        }
       } else {
-        merged = merged :+ l
-        i += 1
+        if (r == right.length && l != left.length) {
+          acc ++ left.slice(l, left.length)
+        } else  {
+          acc ++ right.slice(r, right.length)
+        }
       }
     }
-    if (j == right.length) {
-      merged = merged ++ left.slice(i, left.length)
-    }
-    if (i == left.length) {
-      merged = merged ++ right.slice(j, right.length)
-    }
-    merged
+    merge(0, 0, left, right, Array())
   }
 
 }
