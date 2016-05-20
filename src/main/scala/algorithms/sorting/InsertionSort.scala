@@ -1,4 +1,4 @@
-package algorithms.sorting
+package main.scala.algorithms.sorting
 
 /**
   * Insertion sort algorithm

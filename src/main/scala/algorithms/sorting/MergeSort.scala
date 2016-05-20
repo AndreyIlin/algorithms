@@ -1,4 +1,4 @@
-package algorithms.sorting
+package main.scala.algorithms.sorting
 
 /**
   * Merge sort algorithm

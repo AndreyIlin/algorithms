@@ -1,4 +1,4 @@
-package algorithms.suggestion
+package main.scala.algorithms.suggestion
 
 import scala.io.Source
 
