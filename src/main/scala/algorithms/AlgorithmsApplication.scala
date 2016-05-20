@@ -1,4 +1,4 @@
-package main.scala.algorithms
+package scala.algorithms
 
 import main.scala.algorithms.suggestion.{SuggestionAlgorithm, UserDB}
 

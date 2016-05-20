@@ -1,4 +1,4 @@
-package main.scala.algorithms.multiplication
+package scala.algorithms.multiplication
 
 import scala.annotation.tailrec
 import scala.math.BigInt
