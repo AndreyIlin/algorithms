@@ -1,6 +1,5 @@
 package scala.algorithms.multiplication
 
-import main.scala.algorithms.multiplication.KaratsubaAlgorithm
 import org.scalatest.{Matchers, WordSpec}
 
 class KaratsubaAlgorithmSpec extends WordSpec with Matchers{
