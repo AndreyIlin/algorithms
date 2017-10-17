@@ -1,2 +1,2 @@
 # algorithms
-Popular algorithms on scala
+Some algorithms
